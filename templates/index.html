@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tải lên và Tải xuống tệp</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .file-upload {
+            text-align: center;
+        }
+
+        .file-upload input[type="file"] {
+            display: none;
+        }
+
+        .file-upload label {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #2196F3;
+            color: #fff;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        .file-upload label:hover {
+            background-color: #0D47A1;
+        }
+
+        .file-upload input[type="submit"] {
+            display: block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        .file-download {
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .file-download a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #9C27B0;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+
+        .file-download a:hover {
+            background-color: #6A1B9A;
+        }
+    </style>
+</head>
+<body>
+    <h1>Tải lên và Tải xuống tệp</h1>
+
+    <div class="file-upload">
+        <form method="post" enctype="multipart/form-data" action="/upload">
+            <input type="file" name="file" id="file-input">
+            <label for="file-input">Chọn tệp để tải lên</label>
+            <input type="submit" value="Tải lên">
+        </form>
+    </div>
+
+    <div class="file-download">
+        <h3>Tệp đã tải lên:</h3>
+        <ul>
+            <!-- {% for filename in filenames %} -->
+            <li><a href="/download/{{ filename }}" download>{{ filename }}</a></li>
+            <!-- {% endfor %} -->
+        </ul>
+    </div>
+</body>
+</html>
